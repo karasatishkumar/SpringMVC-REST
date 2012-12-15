@@ -1,0 +1,9 @@
+--- 
+applications: 
+- framework: spring
+  instances: 1
+  name: SpringMVC-REST
+  path: .
+  runtime: java7
+  url: springmvc-rest.${target-base}
+  memory: 256M
