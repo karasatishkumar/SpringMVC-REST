@@ -1,8 +1,6 @@
 package com.techiekernel.service;
 
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.techiekernel.model.FooBar;
+import com.techiekernel.model.FooBarSet;
 
 @Controller
 @RequestMapping("/foobar")
 public class FooBarService {
-
-	static Set<FooBar> fooBars;
+	
+	static FooBarSet fooBarSet;
 
 	static {
-		fooBars = new HashSet<FooBar>();
+		fooBarSet = new FooBarSet();
 		FooBar foobar = null;
 		for (int i = 0; i < 10; i++) {
 			foobar = new FooBar(i, "Techie Kernel " + i);
-			fooBars.add(foobar);
+			fooBarSet.add(foobar);
 		}
 	}
 
@@ -32,7 +31,7 @@ public class FooBarService {
 			"application/json", "application/xml" })
 	@ResponseBody
 	public FooBar getFoobar(@PathVariable int foobarId) {
-		for (FooBar foobar : fooBars) {
+		for (FooBar foobar : fooBarSet) {
 			if (foobar.getId() == foobarId)
 				return foobar;
 		}
@@ -42,8 +41,8 @@ public class FooBarService {
 	@RequestMapping(method = RequestMethod.GET, headers = "Accept=application/xml, application/json", produces = {
 			"application/json", "application/xml" })
 	@ResponseBody
-	public Set<FooBar> getFoobars() {
-		return fooBars;
+	public FooBarSet getFoobars() {
+		return fooBarSet;
 	}
 
 	@RequestMapping(value = "/{foobarId}", method = RequestMethod.PUT, headers = "Accept=application/xml, application/json", produces = {
@@ -52,7 +51,7 @@ public class FooBarService {
 	@ResponseBody
 	public FooBar editFoobar(@RequestBody FooBar foobar,
 			@PathVariable int foobarId) {
-		for (FooBar foobar1 : fooBars) {
+		for (FooBar foobar1 : fooBarSet) {
 			if (foobarId == foobar1.getId()) {
 				foobar1.setId(foobar.getId());
 				foobar1.setName(foobar.getName());
@@ -67,7 +66,7 @@ public class FooBarService {
 	@ResponseBody
 	public boolean deleteFoobar(@PathVariable int foobarId) {
 		System.out.println("Delete call.");
-		Iterator<FooBar> fooIterator = fooBars.iterator();
+		Iterator<FooBar> fooIterator = fooBarSet.iterator();
 		while (fooIterator.hasNext()) {
 			FooBar foobar = fooIterator.next();
 			System.out.println(foobar);
@@ -84,7 +83,7 @@ public class FooBarService {
 			"application/json", "application/xml" })
 	@ResponseBody
 	public boolean createFoobar(@RequestBody FooBar fooBar) {
-		return fooBars.add(fooBar);
+		return fooBarSet.add(fooBar);
 	}
 
 }
