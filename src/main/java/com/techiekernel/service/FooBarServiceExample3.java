@@ -10,7 +10,7 @@ import com.techiekernel.model.FooBar;
 import com.techiekernel.model.FooBarSet;
 
 /**
- * This exmaple has been created to demonstrate the @path for JAX-RS
+ * This exmaple has been created to demonstrate the @RequestParam for JAX-RS
  * 
  * @author satish
  * 
@@ -30,11 +30,6 @@ public class FooBarServiceExample3 {
 		}
 	}
 
-	/**
-	 * Normal URI Mapping with parameter
-	 * @param foobarId
-	 * @return
-	 */
 	@RequestMapping(method = RequestMethod.GET, headers = "Accept=application/xml, application/json", produces = {
 			"application/json", "application/xml" })
 	@ResponseBody
