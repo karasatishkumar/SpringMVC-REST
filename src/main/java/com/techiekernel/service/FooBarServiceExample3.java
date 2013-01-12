@@ -10,7 +10,7 @@ import com.techiekernel.model.FooBar;
 import com.techiekernel.model.FooBarSet;
 
 /**
- * This exmaple has been created to demonstrate the @RequestParam for JAX-RS
+ * This exmaple has been created to demonstrate the @RequestParam for JAX-RS.
  * 
  * @author satish
  * 
