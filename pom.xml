@@ -10,7 +10,6 @@
 	<properties>
 		<jackson-mapper-asl.version>1.9.9</jackson-mapper-asl.version>
 		<jaxb-api.version>2.2.7</jaxb-api.version>
-		<!---->
 		<spring-version>3.1.0.RELEASE</spring-version>
 	</properties>
 
