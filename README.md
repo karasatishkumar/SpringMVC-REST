@@ -2,7 +2,7 @@
 
 ##RESTful web service using Spring 3.1##
 
-This project shows how to build a RESTful web service using Spring 3.1 MVC. It will also demonste the CRUD operation with one of the model object.
+This project shows how to build a RESTful web service using Spring 3.1 MVC. It will also demonste the CRUD operation with one of the model object..
 
 ###tools and technologies###
 
